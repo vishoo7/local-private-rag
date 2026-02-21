@@ -29,6 +29,12 @@ A local-only RAG (Retrieval-Augmented Generation) system that indexes iMessage a
 - beautifulsoup4 (for HTML email parsing)
 - No external APIs, no cloud services
 
+## Privacy Rules for Claude Code Sessions
+- **NEVER include actual message content, contact names, phone numbers, or email addresses in responses, commit messages, or any output that could be sent to Anthropic servers.**
+- Do not paste, quote, or reference real user data in code comments, logs, or tool outputs.
+- When debugging or testing, use synthetic/placeholder data only.
+- This codebase handles private iMessage and email data — treat all ingested content as sensitive PII.
+
 ## Key Design Decisions
 - **Privacy is paramount** — nothing leaves localhost, no telemetry, no external API calls
 - **Stream/batch processing** — never load all 1.1M messages into memory at once; use generators and `fetchmany()`
